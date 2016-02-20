@@ -1,10 +1,12 @@
 components:
   user
+    String name
     int questions asked
     int questions answered
     questions[] questions
-    
   question
     Loc location
     Time time
-  
+  frontpage
+    feed (30% of screen)
+    map with questions pinned
