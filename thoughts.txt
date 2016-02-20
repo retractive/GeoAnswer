@@ -1,0 +1,10 @@
+components:
+  user
+    int questions asked
+    int questions answered
+    questions[] questions
+    
+  question
+    Loc location
+    Time time
+  
