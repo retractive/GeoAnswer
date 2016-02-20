@@ -19,8 +19,8 @@ import java.util.ArrayList;
  */
 public class FeedActivity extends ListActivity {
 
-    private ArrayList<Question> qFeed;
-    private Question temp;
+//    private ArrayList<Question> qFeed;
+//    private Question temp;
 
 
     protected void onCreate(Bundle savedInstanceState) {
