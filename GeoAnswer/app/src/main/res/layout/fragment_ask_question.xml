@@ -1,0 +1,60 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.hackillinois.geoanswer.geoanswer.AnswerQuestionFragment">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="124dp"
+            android:layout_height="140dp"
+            android:id="@+id/imageView"
+            android:src="@drawable/food"
+            android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Large Text"
+            android:id="@+id/questionDisplay" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ask"
+                android:id="@+id/answerButton"
+                android:textAllCaps="false"
+                android:layout_gravity="right" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="textCapSentences|textMultiLine"
+                android:ems="10"
+                android:id="@+id/answerBox"
+                android:hint="@string/ask_prompt"
+                />
+        </LinearLayout>
+
+        <Button
+            android:layout_width="29dp"
+            android:layout_height="30dp"
+            android:text="&lt;-"
+            android:id="@+id/button"
+            android:textAllCaps="false"
+            android:singleLine="true"
+            android:layout_marginTop="-20dp" />
+    </LinearLayout>
+
+</FrameLayout>
