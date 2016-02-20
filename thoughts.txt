@@ -7,6 +7,13 @@ components:
   question
     Loc location
     Time time
+    question text
+    functions:
   frontpage
     feed (30% of screen)
     map with questions pinned
+    ---
+    -knows your location
+    -upon load, map view is centered on your location
+    -feed is in second half of screen
+    -
