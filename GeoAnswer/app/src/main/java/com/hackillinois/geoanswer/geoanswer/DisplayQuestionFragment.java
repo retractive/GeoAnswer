@@ -21,28 +21,31 @@ import java.util.ArrayList;
  * create an instance of this fragment.
  */
 public class DisplayQuestionFragment extends Fragment {
+    private static final String ARG_USER_SUBMISSION = "questionText";
     private static final String ARG_ANSWER_TEXT = "answerText";
-    private String newestAnswer = null;
 
-    private String exampleQ = "What ice cream flavors are at Babcock today?";
-    private String exampleUser = "John Smith";
+    private String newestAnswer = null;
+    private String questionClicked = null;
+
+   // private String exampleQ = "What ice cream flavors are at Babcock today?";
+    //private String exampleUser = "John Smith";
     private String defaultAnswer = "Got an answer? Submit your own...";
 
     //Widgets
     private ListView answerList; //the answers to this question
     private TextView question; //the question itself
-    private ArrayList<UserSubmission> answers;
-    private ArrayAdapter<UserSubmission> adapter;
+    private ArrayList<String> answers;
+    private ArrayAdapter<String> adapter;
     private Button answerButton;
 
     /**
      *
      */
-    public static DisplayQuestionFragment newInstance(String answerText) {
+    public static DisplayQuestionFragment newInstance(String answerText, String question) {
         DisplayQuestionFragment fragment = new DisplayQuestionFragment();
         Bundle args = new Bundle();
         args.putString(ARG_ANSWER_TEXT, answerText);
-        ;
+        args.putString(ARG_USER_SUBMISSION, question);
         fragment.setArguments(args);
         return fragment;
     }
@@ -56,6 +59,7 @@ public class DisplayQuestionFragment extends Fragment {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             newestAnswer = getArguments().getString(ARG_ANSWER_TEXT);
+            questionClicked = getArguments().getString(ARG_USER_SUBMISSION);
         }
     }
 
@@ -69,26 +73,27 @@ public class DisplayQuestionFragment extends Fragment {
         answerList = (ListView) view.findViewById(R.id.answerList);
         question = (TextView) view.findViewById(R.id.questionDisplay);
 
-        answers = new ArrayList<UserSubmission>();
-        adapter = new ArrayAdapter<UserSubmission>(getActivity(),
+        // get QuestionList from main QVActivity
+        QuestionViewActivity test = (QuestionViewActivity) getActivity();
+        int questionIndex = test.getQuestionList().indexOf(questionClicked);  //Question feed
+        answers = test.getAnswerList().get(0);
+
+
+        adapter = new ArrayAdapter<String>(getActivity(),
                 android.R.layout.simple_expandable_list_item_1, answers);
         answerList.setAdapter(adapter);
 
         answerButton = (Button) view.findViewById(R.id.answerButton);
 
-
-        //Example question
-        UserSubmission exQuestionSubmission = new UserSubmission(exampleUser, exampleQ);
-        question.setText(exQuestionSubmission.toString());
+        //Display question
+        question.setText(questionClicked);
 
         //Default answer
-        answers.add(new UserSubmission(null, defaultAnswer)); //TODO bruh maybe not w/ the user submission, just have Question and Answer or straight up Strings
+        answers.add(defaultAnswer);
 
         if(newestAnswer != null){
-            answers.add(new UserSubmission(null, newestAnswer));
+            answers.add(newestAnswer);
         }
-
-        //   adapter.notifyDataSetChanged(); //KAD
 
    return view;
     }

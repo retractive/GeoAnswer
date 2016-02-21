@@ -1,13 +1,11 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.hackillinois.geoanswer.geoanswer.DisplayQuestionFragment">
+    android:paddingLeft="8dp"
+    android:paddingRight="8dp">
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
         <ImageView
             android:layout_width="124dp"
@@ -20,13 +18,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Large Text"
-            android:id="@+id/questionDisplay" />
+            android:text="LocationNameHere"
+            android:id="@+id/locationDisplay"
+            android:singleLine="true" />
 
         <ListView
             android:layout_width="wrap_content"
             android:layout_height="169dp"
-            android:id="@+id/answerList"
+            android:id="@+id/questionList"
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
@@ -35,11 +34,9 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Answer"
-            android:id="@+id/answerButton"
+            android:text="Ask a new question"
+            android:id="@+id/askQuestionButton"
             android:textAllCaps="false"
             android:layout_gravity="center_horizontal" />
 
-    </LinearLayout>
-
-</FrameLayout>
+</LinearLayout>

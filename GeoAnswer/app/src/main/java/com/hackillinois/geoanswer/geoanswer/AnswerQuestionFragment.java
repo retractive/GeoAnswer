@@ -73,7 +73,7 @@ public class AnswerQuestionFragment extends Fragment {
             public void onClick(View v) {
                 int commit = getFragmentManager()
                         .beginTransaction()
-                        .replace(R.id.main_fragment_container, DisplayQuestionFragment.newInstance(answerBox.getText().toString()))
+                        .replace(R.id.main_fragment_container, DisplayQuestionFragment.newInstance(answerBox.getText().toString(), question.getText().toString()))
                         .addToBackStack(null)
                         .commit();
             }
