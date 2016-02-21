@@ -87,9 +87,16 @@ public class LocationFeedFragment extends Fragment {
         location.setText(locationName);
 
         // get QuestionList from main QVActivity
-        QuestionViewActivity test = (QuestionViewActivity) getActivity();
-        //Question feed
-        questions = test.getQuestionList();
+        Activity test = getActivity();
+        QuestionViewActivity qvAct = null;
+                MainActivity mainAct = null;
+        if (test instanceof QuestionViewActivity){ qvAct = (QuestionViewActivity) test;
+            //Question feed
+            questions = qvAct.getQuestionList();}
+        else   if (test instanceof MainActivity){ mainAct = (MainActivity) test;
+            questions = mainAct.getQuestionList();}
+//        //Question feed
+//        questions = test.getQuestionList();
 
 
 

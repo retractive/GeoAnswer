@@ -1,5 +1,6 @@
 package com.hackillinois.geoanswer.geoanswer;
 
+import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
 import android.net.Uri;
@@ -74,9 +75,19 @@ public class DisplayQuestionFragment extends Fragment {
         question = (TextView) view.findViewById(R.id.questionDisplay);
 
         // get QuestionList from main QVActivity
-        QuestionViewActivity test = (QuestionViewActivity) getActivity();
-        int questionIndex = test.getQuestionList().indexOf(questionClicked);  //Question feed
-        answers = test.getAnswerList().get(0);
+        QuestionViewActivity qvAct = null;
+        MainActivity mainAct = null;
+        Activity test = getActivity();
+        int questionIndex = 0;
+        if (test instanceof QuestionViewActivity){
+            qvAct = (QuestionViewActivity) test;
+            questionIndex = qvAct.getQuestionList().indexOf(questionClicked);
+            answers = qvAct.getAnswerList().get(questionIndex); //Question feed
+            }
+        else if (test instanceof MainActivity){
+            mainAct = (MainActivity) test;
+            questionIndex = mainAct.getQuestionList().indexOf(questionClicked);
+            answers = mainAct.getAnswerList().get(questionIndex);}
 
 
         adapter = new ArrayAdapter<String>(getActivity(),

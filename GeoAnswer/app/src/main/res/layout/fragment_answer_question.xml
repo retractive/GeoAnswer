@@ -13,7 +13,7 @@
             android:layout_width="124dp"
             android:layout_height="140dp"
             android:id="@+id/imageView"
-            android:src="@drawable/food"
+            android:src="@drawable/logo"
             android:layout_gravity="center_horizontal" />
 
         <TextView
@@ -28,14 +28,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Answer"
-                android:id="@+id/answerButton"
-                android:textAllCaps="false"
-                android:layout_gravity="right" />
-
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -45,16 +37,16 @@
                 android:id="@+id/answerBox"
                 android:hint="@string/answer_prompt"
                 />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Answer"
+                android:id="@+id/answerButton"
+                android:textAllCaps="false"
+                android:layout_gravity="right" />
         </LinearLayout>
 
-        <Button
-            android:layout_width="29dp"
-            android:layout_height="30dp"
-            android:text="&lt;-"
-            android:id="@+id/button"
-            android:textAllCaps="false"
-            android:singleLine="true"
-            android:layout_marginTop="-20dp" />
     </LinearLayout>
 
 </FrameLayout>
